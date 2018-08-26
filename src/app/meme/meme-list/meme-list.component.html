@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success" routerLink="/memes/create">New Meme</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div *ngFor="let meme of memes | async" class="col-xs-12">
+      <a
+      routerLink="/memes/details/{{meme.id}}"
+      style="cursor: pointer;"
+      class="list-group-item clearfix">
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">{{meme.name}}</h4>
+        <p class="list-group-item-text">{{meme.description}}</p>
+      </div>
+      <span class="pull-right">
+            <img
+              src="{{meme.imagePath}}"
+              alt="{{meme.name}}"
+              class="img-responsive"
+              style="max-height: 50px;">
+       </span>
+    </a>      
+  </div>
+</div>
